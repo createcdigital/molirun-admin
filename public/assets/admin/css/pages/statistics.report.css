@@ -1,0 +1,12 @@
+.report-header {
+    padding: 20px 20px 0 20px;
+    background-color: #F4F4F4;
+    border-bottom: 1px solid #DDD;
+}
+.report-header .report-subheading {
+    font-size: 15px;
+    margin: 0;
+}
+.report-body {
+    padding: 20px;
+}

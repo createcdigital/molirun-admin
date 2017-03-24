@@ -1,0 +1,83 @@
+.color-swatch{
+    width:35px;
+    height:35px;
+    board-radius:3px;
+    float:left;
+    margin:0px 10px;
+}
+
+.color-swatches .color-swatch:nth-child(1){
+    background-color:#10AD61;
+    border: 3px solid #636E7B;
+}
+
+.color-swatches .color-swatch:nth-child(2){
+    background-color:#35A4DE;
+}
+
+.color-swatches .color-swatch:nth-child(3){
+    background-color:#EBAC16;
+}
+
+.color-swatches .color-swatch:nth-child(4){
+    background-color:#D54036;
+}
+
+
+.mt-15 {
+    margin-top: 15px !important;
+}
+
+.p-15{
+    padding:15px 0px;
+    font-weight: 300;
+    border-top: 1px solid #DDD;
+}
+
+.maps{
+    min-height: 569px;
+}
+
+.p-15{
+    padding:15px 0px;
+    font-weight: 300;
+    border-top: 1px solid #DDD;
+}
+
+.pt-15{
+    padding:15px 0px;
+    font-weight: 300;
+}
+
+.ptb-15{
+    padding:15px 0px;
+    font-weight: 300;
+    border-top: 1px solid #DDD;
+    margin-top: 15px;
+}
+
+.fw-300{
+    font-weight: 300;
+}
+
+.help-block {
+    color: #a94442;
+    position: absolute;
+    width: 100%;
+    line-height: 34px;
+    margin-left: 8px;
+}
+
+.ml-30{margin-left:30px;}
+
+.ml--30{margin-left:-30px;}
+
+.ml--12{margin-left: -12px;}
+.ml--40{margin-left: -40px;}
+
+.ml--12{margin-left: -12px;}
+
+.mr-15{margin-left:-30px;}
+.pr-30{padding-right: 30px;}
+
+.mb-15{ margin-bottom: 15px;}
