@@ -56,10 +56,6 @@
                     </div><!-- /.panel-heading -->
                     <div class="panel-body">
 
-                        <div class="panel-body">
-                            <button class="btn btn-success" onclick="javascript:location.href='/racer/create'">{{ trans('racer.new') }}</button>
-                        </div>
-
 
                         <table class="table table-bordered" id="datatable-sample">
                             <thead>
