@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration {
 	{
 		DB::table('users')->insert(array(
 			"name" => "admin",
-			"email" => "admin@createcdigital.com",
+			"email" => "molirun@createcdigital.com",
 			"password" => '$2y$10$h.HmflGV8q9MUa8kaidpeuXAmrCTZ2QbkoyHzem6a9Fq1Ra24OnIy',
 		));
 	}
