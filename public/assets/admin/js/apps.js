@@ -646,7 +646,7 @@ var BlankonApp = function(){
                 // Add sound
                 ion.sound.play('camera_flashing');
                 bootbox.dialog({
-                    message: '<h4>Shake To Win System</h4> <p>Support Email:<a href="mailto:stw-support@createcdigital.com"> mss-support@createcdigital.com</a></p> <p>Support Tel: +86 021-51131619</p> <p><em>Version: 1.0</em></p>',
+                    message: '<h4>茉莉跑报名信息管理系统</h4> <p>Support Email:<a href="mailto:coton.chen@createcdigital.com"> coton.chen@createcdigital.com</a></p> <p>Support Tel: +86 021-61427370</p> <p><em>Version: 1.0</em></p>',
                     title: 'Help & Contact',
                     className: 'modal-success modal-center',
                     buttons: {
@@ -688,7 +688,7 @@ var BlankonApp = function(){
                 // Add sound
                 ion.sound.play('camera_flashing');
                 bootbox.dialog({
-                    message: 'Do you want to exit from SHAKE TO WIN System?',
+                    message: 'Do you want to exit from System?',
                     title: 'Logout',
                     className: 'modal-danger modal-center',
                     buttons: {

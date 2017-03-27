@@ -12,7 +12,7 @@
 
     <!-- Brand -->
     <div class="brand">
-        <img src="{{ asset('assets/admin/img/logo/html/logo-eur.png') }}" alt="brand logo"/>
+
     </div>
     <!--/ Brand -->
 
@@ -50,9 +50,7 @@
                             <label for="rememberme" class="rounded">Remember me</label>
                         </div>
                     </div>
-                    <div class="col-xs-6 text-right">
-                        <a href="{{url('page/lost-password')}}" title="lost password">Lost password?</a>
-                    </div>
+
                 </div>
             </div><!-- /.form-group -->
             <div class="form-group">
