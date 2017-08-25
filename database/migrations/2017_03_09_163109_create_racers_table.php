@@ -76,6 +76,7 @@ class CreateRacersTable extends Migration
             $table->string('pakcage_get_address')->default('');
 
             // payment
+            $table->string('out_trade_no')->unique();
             $table->string('pay_status')->default('');
             $table->string('transaction_id')->default('');
             $table->string('transaction_date')->default('');
