@@ -39,5 +39,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/stock/index', 'StockController@getIndex');
     Route::get('/stock/data', 'StockController@anyData');
 
+    Route::get('/coupon/index', 'CouponController@getIndex');
+    Route::get('/coupon/data', 'CouponController@anyData');
+
 });
 

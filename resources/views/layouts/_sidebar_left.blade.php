@@ -55,6 +55,14 @@ START @SIDEBAR LEFT
         </li>
         <!--/ End stock -->
 
+        <!-- Start coupon -->
+        <li {!! Request::is('coupon', 'coupon/*') ? 'class="active"' : null !!}>
+            <a href="{{url('coupon/index')}}">
+                <span class="icon"><i class="fa fa-user"></i></span>
+                <span class="text">{{ trans('coupon.code') }}</span>
+            </a>
+        </li>
+        <!--/ End coupon -->
 
     </ul><!-- /.sidebar-menu -->
     <!--/ End left navigation - menu -->
