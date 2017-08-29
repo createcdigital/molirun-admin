@@ -709,19 +709,19 @@ var AppPage = function(){
                 //参赛组
                 var groupHTML = "";
                 var groupValue = "";
-                if(data.grouptype=="5公里")
+                if(data.grouptype=="5km")
                 {
-                    groupValue = "5公里";
+                    groupValue = "5km";
                     groupHTML= '<div class="col-md-2">' +
                     '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio-type-default2" checked="checked" type="radio" value="5公里" name="radio_grouptype">' +
-                    '<label for="radio-type-default2">5公里</label>' +
+                    '<input id="radio-type-default2" checked="checked" type="radio" value="5km" name="radio_grouptype">' +
+                    '<label for="radio-type-default2">5km</label>' +
                     '</div>' +
                     '</div>' +
                     '<div class="col-sm-2">' +
                     '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio-type-rounded2" type="radio" value="10公里" name="radio_grouptype">' +
-                    '<label for="radio-type-rounded2">10公里</label>' +
+                    '<input id="radio-type-rounded2" type="radio" value="10km" name="radio_grouptype">' +
+                    '<label for="radio-type-rounded2">10km</label>' +
                     '</div>' +
                     '</div>' +
                     '<div class="col-sm-2">' +
@@ -730,19 +730,19 @@ var AppPage = function(){
                     '<label for="radio-type-circle2">亲子跑</label>' +
                     '</div>' +
                     '</div>' ;
-                }else if (data.grouptype=="10公里")
+                }else if (data.grouptype=="10km")
                 {
-                    groupValue = "10公里";
+                    groupValue = "10km";
                     groupHTML= '<div class="col-md-2">' +
                     '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio-type-default2"  type="radio" value="5公里" name="radio_grouptype">' +
-                    '<label for="radio-type-default2">5公里</label>' +
+                    '<input id="radio-type-default2"  type="radio" value="5km" name="radio_grouptype">' +
+                    '<label for="radio-type-default2">5km</label>' +
                     '</div>' +
                     '</div>' +
                     '<div class="col-sm-2">' +
                     '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio-type-rounded2" checked="checked" type="radio" value="10公里" name="radio_grouptype">' +
-                    '<label for="radio-type-rounded2">10公里</label>' +
+                    '<input id="radio-type-rounded2" checked="checked" type="radio" value="10km" name="radio_grouptype">' +
+                    '<label for="radio-type-rounded2">10km</label>' +
                     '</div>' +
                     '</div>' +
                     '<div class="col-sm-2">' +
@@ -756,14 +756,14 @@ var AppPage = function(){
                     groupValue = "亲子跑";
                     groupHTML= '<div class="col-md-2">' +
                     '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio-type-default2"  type="radio" value="5公里" name="radio_grouptype">' +
-                    '<label for="radio-type-default2">5公里</label>' +
+                    '<input id="radio-type-default2"  type="radio" value="5km" name="radio_grouptype">' +
+                    '<label for="radio-type-default2">5km</label>' +
                     '</div>' +
                     '</div>' +
                     '<div class="col-sm-2">' +
                     '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio-type-rounded2" type="radio" value="10公里" name="radio_grouptype">' +
-                    '<label for="radio-type-rounded2">10公里</label>' +
+                    '<input id="radio-type-rounded2" type="radio" value="10km" name="radio_grouptype">' +
+                    '<label for="radio-type-rounded2">10km</label>' +
                     '</div>' +
                     '</div>' +
                     '<div class="col-sm-2">' +
@@ -1755,12 +1755,12 @@ var AppPage = function(){
             }
 
             $('input[type=radio][name=radio_grouptype]').change(function() {
-                if (this.value == '5公里') {
+                if (this.value == '5km') {
                     hideFamilyForm();
-                    changeGroupType('5公里');
-                }else if(this.value == '10公里') {
+                    changeGroupType('5km');
+                }else if(this.value == '10km') {
                     hideFamilyForm();
-                    changeGroupType('10公里');
+                    changeGroupType('10km');
                 }
                 else if (this.value == '亲子跑') {
                     showFamilyForm();
