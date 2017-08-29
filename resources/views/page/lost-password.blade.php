@@ -1,7 +1,7 @@
 @extends('layouts.lay_account')
 
 
-@section('title', 'LOST PASSWORD | SHAKE TO WIN')
+@section('title', 'LOST PASSWORD | MOLIRUN')
 
 @section('css-page')
     <link href="{{ asset('assets/admin/css/pages/sign.css') }}" rel="stylesheet">

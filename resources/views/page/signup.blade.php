@@ -1,6 +1,6 @@
 @extends('layouts.lay_account')
 
-@section('title', 'SIGN UP | SHAKE TO WIN')
+@section('title', 'SIGN UP | MOLIRUN')
 
 @section('css-page')
     <link href="{{ asset('assets/admin/css/pages/signup.css') }}" rel="stylesheet">

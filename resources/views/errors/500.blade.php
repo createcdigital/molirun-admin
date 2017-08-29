@@ -1,7 +1,7 @@
 @extends('layouts.lay_account')
 
 
-@section('title', '500 | SHAKE TO WIN')
+@section('title', '500 | MOLIRUN')
 
 @section('css-page')
 <link href="{{ asset('assets/admin/css/pages/error-page.css') }}" rel="stylesheet">
