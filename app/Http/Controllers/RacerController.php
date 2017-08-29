@@ -290,12 +290,12 @@ class RacerController extends BaseController {
         if(isset($request->pakcage_get_address))
             $model->pakcage_get_address = $request->pakcage_get_address;
 
-//            // payment
-//            $model->pay_status = $request->pay_status;
-//            $model->transaction_id = $request->transaction_id;
-//            $model->transaction_date = $request->transaction_date;
-//
-//            // race result
+            // payment
+            $model->pay_status = $request->pay_status;
+            $model->transaction_id = $request->transaction_id;
+            $model->transaction_date = $request->transaction_date;
+
+            // race result
 //            $model->p1_race_number = $request->p1_race_number;
 //            $model->p2_race_number = $request->p2_race_number;
 //            $model->kids_race_number = $request->kids_race_number;

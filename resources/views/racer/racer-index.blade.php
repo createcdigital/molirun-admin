@@ -57,7 +57,7 @@
                     <div class="panel-body">
 
                         <div class="panel-body">
-                            <button class="btn btn-success" onclick="javascript:location.href='/racer/create'">{{ trans('racer.new') }}</button>
+                            {{--<button class="btn btn-success" onclick="javascript:location.href='/racer/create'">{{ trans('racer.new') }}</button>--}}
                         </div>
 
 

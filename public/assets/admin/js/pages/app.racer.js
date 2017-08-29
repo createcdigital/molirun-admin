@@ -365,7 +365,7 @@ var AppPage = function(){
                 var data = $table.DataTable().row($tr).data();
 
                 var transactionName="商户订单号";
-                if(data.data.pay_status=='邀请码支付')
+                if(data.pay_status=='邀请码支付')
                 {
                     transactionName= "邀请码";
                 }
@@ -641,7 +641,7 @@ var AppPage = function(){
                     '</div>' +
 
                     // family
-                    (data.grouptype == "家庭跑" ? family_html : '') +
+                    (data.grouptype == "亲子跑" ? family_html : '') +
 
 
                     '<div class="form-group form-group-divider">' +
@@ -701,14 +701,203 @@ var AppPage = function(){
                 var data = $table.DataTable().row($tr).data();
 
                 var transactionName="商户订单号";
-                if(data.data.pay_status=='邀请码支付')
+                if(data.pay_status=='邀请码支付')
                 {
                     transactionName= "邀请码";
                 }
 
+                //参赛组
+                var groupHTML = "";
+                var groupValue = "";
+                if(data.grouptype=="5公里")
+                {
+                    groupValue = "5公里";
+                    groupHTML= '<div class="col-md-2">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio-type-default2" checked="checked" type="radio" value="5公里" name="radio_grouptype">' +
+                    '<label for="radio-type-default2">5公里</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-2">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio-type-rounded2" type="radio" value="10公里" name="radio_grouptype">' +
+                    '<label for="radio-type-rounded2">10公里</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-2">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio-type-circle2" type="radio" value="亲子跑" name="radio_grouptype">' +
+                    '<label for="radio-type-circle2">亲子跑</label>' +
+                    '</div>' +
+                    '</div>' ;
+                }else if (data.grouptype=="10公里")
+                {
+                    groupValue = "10公里";
+                    groupHTML= '<div class="col-md-2">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio-type-default2"  type="radio" value="5公里" name="radio_grouptype">' +
+                    '<label for="radio-type-default2">5公里</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-2">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio-type-rounded2" checked="checked" type="radio" value="10公里" name="radio_grouptype">' +
+                    '<label for="radio-type-rounded2">10公里</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-2">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio-type-circle2" type="radio" value="亲子跑" name="radio_grouptype">' +
+                    '<label for="radio-type-circle2">亲子跑</label>' +
+                    '</div>' +
+                    '</div>' ;
+                }else
+                {
+                    groupValue = "亲子跑";
+                    groupHTML= '<div class="col-md-2">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio-type-default2"  type="radio" value="5公里" name="radio_grouptype">' +
+                    '<label for="radio-type-default2">5公里</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-2">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio-type-rounded2" type="radio" value="10公里" name="radio_grouptype">' +
+                    '<label for="radio-type-rounded2">10公里</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-2">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio-type-circle2" checked="checked" type="radio" value="亲子跑" name="radio_grouptype">' +
+                    '<label for="radio-type-circle2">亲子跑</label>' +
+                    '</div>' +
+                    '</div>' ;
+                }
+
+                //领取方式
+                var pakcagegetway ="",pakcagegetwayHTML="";
+                if(data.pakcage_get_way=="顺丰到付")
+                {
+                    pakcagegetway = "顺丰到付"
+                    pakcagegetwayHTML ='<div class="rdio rdio-theme circle">' +
+                    '<input id="radio_pakcage_get_way_delivery" checked="checked" type="radio" value="顺丰到付" name="radio_pakcage_get_way">' +
+                    '<label for="radio_pakcage_get_way_delivery">顺丰到付</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-4">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio_pakcage_get_way_onsite" type="radio" value="现场领取" name="radio_pakcage_get_way">' +
+                    '<label for="radio_pakcage_get_way_onsite">现场领取</label>' +
+                    '</div>';
+                }else
+                {
+                    pakcagegetway = "现场领取"
+                    pakcagegetwayHTML ='<div class="rdio rdio-theme circle">' +
+                    '<input id="radio_pakcage_get_way_delivery"  type="radio" value="顺丰到付" name="radio_pakcage_get_way">' +
+                    '<label for="radio_pakcage_get_way_delivery">顺丰到付</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-4">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio_pakcage_get_way_onsite" checked="checked" type="radio" value="现场领取" name="radio_pakcage_get_way">' +
+                    '<label for="radio_pakcage_get_way_onsite">现场领取</label>' +
+                    '</div>' ;
+                }
+
+                //成人1性别
+                var p1sex ="",p1sexHTML="";
+                if(data.p1_sex=="男")
+                {
+                    p1sex = "男";
+                    p1sexHTML='<div class="rdio rdio-theme circle">' +
+                    '<input id="radio_p1_sex_male" checked="checked" type="radio" value="男" name="radio_p1_sex">' +
+                    '<label for="radio_p1_sex_male">男</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-4">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio_p1_sex_female" type="radio" value="女" name="radio_p1_sex">' +
+                    '<label for="radio_p1_sex_female">女</label>' +
+                    '</div>'
+                }else
+                {
+                    p1sex = "女";
+                    p1sexHTML='<div class="rdio rdio-theme circle">' +
+                    '<input id="radio_p1_sex_male"  type="radio" value="男" name="radio_p1_sex">' +
+                    '<label for="radio_p1_sex_male">男</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-4">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio_p1_sex_female" checked="checked" type="radio" value="女" name="radio_p1_sex">' +
+                    '<label for="radio_p1_sex_female">女</label>' +
+                    '</div>'
+                }
+                //成人2性别
+                var p2sex ="",p2sexHTML="";
+                if(data.p2_sex=="男")
+                {
+                    p2sex = "男";
+                    p2sexHTML='<div class="rdio rdio-theme circle">' +
+                        '<input id="radio_p2_sex_male" checked="checked" type="radio" value="男" name="radio_p2_sex">' +
+                        '<label for="radio_p2_sex_male">男</label>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="col-sm-4">' +
+                        '<div class="rdio rdio-theme circle">' +
+                        '<input id="radio_p2_sex_female" type="radio" value="女" name="radio_p2_sex">' +
+                        '<label for="radio_p2_sex_female">女</label>' +
+                        '</div>'
+                }else
+                {
+                    p2sex = "女";
+                    p2sexHTML='<div class="rdio rdio-theme circle">' +
+                        '<input id="radio_p2_sex_male"  type="radio" value="男" name="radio_p2_sex">' +
+                        '<label for="radio_p2_sex_male">男</label>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="col-sm-4">' +
+                        '<div class="rdio rdio-theme circle">' +
+                        '<input id="radio_p2_sex_female" checked="checked" type="radio" value="女" name="radio_p2_sex">' +
+                        '<label for="radio_p2_sex_female">女</label>' +
+                        '</div>'
+                }
+
+                //儿童性别
+                var kidssex ="",kidssexHTML="";
+                if(data.kids_sex=="男")
+                {
+                    kidssex = "男";
+                    kidssexHTML='<div class="col-sm-4">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio_kids_sex_male" checked="checked" type="radio" value="男" name="radio_kids_sex">' +
+                    '<label for="radio_kids_sex_male">男</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-4">' +
+                    '<div class="rdio rdio-theme circle">' +
+                    '<input id="radio_kids_sex_female" type="radio" value="女" name="radio_kids_sex">' +
+                    '<label for="radio_kids_sex_female">女</label>' +
+                    '</div>';
+                }else
+                {
+                    kidssex = "女";
+                    kidssexHTML='<div class="col-sm-4">' +
+                        '<div class="rdio rdio-theme circle">' +
+                        '<input id="radio_kids_sex_male"  type="radio" value="男" name="radio_kids_sex">' +
+                        '<label for="radio_kids_sex_male">男</label>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="col-sm-4">' +
+                        '<div class="rdio rdio-theme circle">' +
+                        '<input id="radio_kids_sex_female" checked="checked" type="radio" value="女" name="radio_kids_sex">' +
+                        '<label for="radio_kids_sex_female">女</label>' +
+                        '</div>';
+                }
                 // family html
                 var family_html = '' +
                     // 成年人2
+                    '<div class="form-p2">'+
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">成人2姓名 :</label>' +
                     '<div class="col-sm-8">' +
@@ -718,16 +907,7 @@ var AppPage = function(){
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">成人2性别 :</label>' +
                     '<div class="col-sm-4">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio_p2_sex_male" checked="checked" type="radio" value="男" name="radio_p2_sex">' +
-                    '<label for="radio_p2_sex_male">男</label>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="col-sm-4">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio_p2_sex_female" type="radio" value="女" name="radio_p2_sex">' +
-                    '<label for="radio_p2_sex_female">女</label>' +
-                    '</div>' +
+                    p2sexHTML+
                     '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
@@ -739,24 +919,24 @@ var AppPage = function(){
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">成人2T恤尺码 :</label>' +
                     '<div class="col-sm-8">' +
-                    '<select class="chosen-select" name="p1_teesize">' +
-                    '<option value="XS(160/82A)">XS(160/82A)</option>' +
-                    '<option value="S(165/84A)">S(165/84A)</option>' +
-                    '<option value="M(170/88A)">M(170/88A)</option>' +
-                    '<option value="L(175/92A)">L(175/92A)</option>' +
-                    '<option value="XL(180/96A)">XL(180/96A)</option>' +
-                    '<option value="XXL(185/100A)">XXL(185/100A)</option>' +
+                    '<select class="form-control" name="p2_teesize">' +
+                    '<option '+(data.p2_teesize == "XS(160/82A)" ? 'selected="selected"' : '')+' value="XS(160/82A)">XS(160/82A)</option>' +
+                    '<option '+(data.p2_teesize == "S(165/84A)" ? 'selected="selected"' : '')+' value="S(165/84A)">S(165/84A)</option>' +
+                    '<option '+(data.p2_teesize == "M(170/88A)" ? 'selected="selected"' : '')+' value="M(170/88A)">M(170/88A)</option>' +
+                    '<option '+(data.p2_teesize == "L(175/92A)" ? 'selected="selected"' : '')+' value="L(175/92A)">L(175/92A)</option>' +
+                    '<option '+(data.p2_teesize == "XL(180/96A)" ? 'selected="selected"' : '')+' value="XL(180/96A)">XL(180/96A)</option>' +
+                    '<option '+(data.p2_teesize == "XXL(185/100A)" ? 'selected="selected"' : '')+'value="XXL(185/100A)">XXL(185/100A)</option>' +
                     '</select>' +
                     '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">成人2证件类型 :</label>' +
                     '<div class="col-sm-8">' +
-                    '<select class="chosen-select" name="p1_card_type">' +
-                    '<option value="身份证">身份证</option>' +
-                    '<option value="护照">护照</option>' +
-                    '<option value="港澳居民来往内地通行证">港澳居民来往内地通行证</option>' +
-                    '<option value="台湾居民来往大陆通行证">台湾居民来往大陆通行证</option>' +
+                    '<select class="form-control" name="p2_card_type">' +
+                    '<option '+(data.p2_card_type == "身份证" ? 'selected="selected"' : '')+ 'value="身份证">身份证</option>' +
+                    '<option '+(data.p2_card_type == "护照" ? 'selected="selected"' : '')+ 'value="护照">护照</option>' +
+                    '<option '+(data.p2_card_type == "港澳居民来往内地通行证" ? 'selected="selected"' : '')+ ' value="港澳居民来往内地通行证">港澳居民来往内地通行证</option>' +
+                    '<option '+(data.p2_card_type == "台湾居民来往大陆通行证" ? 'selected="selected"' : '')+ ' value="台湾居民来往大陆通行证">台湾居民来往大陆通行证</option>' +
                     '</select>' +
                     '</div>' +
                     '</div>' +
@@ -784,8 +964,10 @@ var AppPage = function(){
                     '<input class="form-control" type="text" value="' + data.p2_emergency_phone + '" name="p2_emergency_phone">' +
                     '</div>' +
                     '</div>' +
+                    '</div>' +
 
                     // 未成年人
+                    '<div class="form-kids">'+
                     '<div class="form-group form-bordered">' +
                     '<label class="col-sm-3 control-label">未成年人姓名 :</label>' +
                     '<div class="col-sm-8">' +
@@ -794,17 +976,7 @@ var AppPage = function(){
                     '</div>' +
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">未成年人性别 :</label>' +
-                    '<div class="col-sm-4">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio_kids_sex_male" checked="checked" type="radio" value="男" name="radio_kids_sex">' +
-                    '<label for="radio_kids_sex_male">男</label>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="col-sm-4">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio_kids_sex_female" type="radio" value="女" name="radio_kids_sex">' +
-                    '<label for="radio_kids_sex_female">女</label>' +
-                    '</div>' +
+                    kidssexHTML+
                     '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
@@ -816,26 +988,28 @@ var AppPage = function(){
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">未成年人T恤尺码 :</label>' +
                     '<div class="col-sm-8">' +
-                    '<select class="chosen-select" name="kids_teesize">' +
-                    '<option value="110以下">110以下</option>' +
-                    '<option value="110-130">110-130</option>' +
-                    '<option value="XS(160/82A)">XS(160/82A)</option>' +
-                    '<option value="S(165/84A)">S(165/84A)</option>' +
-                    '<option value="M(170/88A)">M(170/88A)</option>' +
-                    '<option value="L(175/92A)">L(175/92A)</option>' +
-                    '<option value="XL(180/96A)">XL(180/96A)</option>' +
-                    '<option value="XXL(185/100A)">XXL(185/100A)</option>' +
+                    '<select class="form-control" name="kids_teesize">' +
+                    '<option '+(data.kids_teesize == "110以下" ? 'selected="selected"' : '')+ ' value="110以下">110以下</option>' +
+                    '<option '+(data.kids_teesize == "110-130" ? 'selected="selected"' : '')+ '  value="110-130">110-130</option>' +
+                    '<option '+(data.kids_teesize == "XS(160/82A)" ? 'selected="selected"' : '')+ '  value="XS(160/82A)">XS(160/82A)</option>' +
+                    '<option '+(data.kids_teesize == "S(165/84A)" ? 'selected="selected"' : '')+ '  value="S(165/84A)">S(165/84A)</option>' +
+                    '<option '+(data.kids_teesize == "M(170/88A)" ? 'selected="selected"' : '')+ '  value="M(170/88A)">M(170/88A)</option>' +
+                    '<option '+(data.kids_teesize == "L(175/92A)" ? 'selected="selected"' : '')+ '  value="L(175/92A)">L(175/92A)</option>' +
+                    '<option '+(data.kids_teesize == "XL(180/96A)" ? 'selected="selected"' : '')+ '  value="XL(180/96A)">XL(180/96A)</option>' +
+                    '<option '+(data.kids_teesize == "XXL(185/100A)" ? 'selected="selected"' : '')+ '  value="XXL(185/100A)">XXL(185/100A)</option>' +
                     '</select>' +
+                    '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">未成年人证件类型 :</label>' +
                     '<div class="col-sm-8">' +
-                    '<select class="chosen-select" name="p1_card_type">' +
-                    '<option value="身份证">身份证</option>' +
-                    '<option value="护照">护照</option>' +
-                    '<option value="港澳居民来往内地通行证">港澳居民来往内地通行证</option>' +
-                    '<option value="台湾居民来往大陆通行证">台湾居民来往大陆通行证</option>' +
+                    '<select class="form-control" name="kids_card_type">' +
+                    '<option '+(data.kids_card_type == "身份证" ? 'selected="selected"' : '')+ 'value="身份证">身份证</option>' +
+                    '<option '+(data.kids_card_type == "护照" ? 'selected="selected"' : '')+ 'value="护照">护照</option>' +
+                    '<option '+(data.kids_card_type == "港澳居民来往内地通行证" ? 'selected="selected"' : '')+ ' value="港澳居民来往内地通行证">港澳居民来往内地通行证</option>' +
+                    '<option '+(data.kids_card_type == "台湾居民来往大陆通行证" ? 'selected="selected"' : '')+ ' value="台湾居民来往大陆通行证">台湾居民来往大陆通行证</option>' +
                     '</select>' +
+                    '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">未成年人证件号码 :</label>' +
@@ -867,13 +1041,14 @@ var AppPage = function(){
                     '<input class="form-control" type="text" value="' + data.kids_emergency_phone + '" name="kids_emergency_phone">' +
                     '</div>' +
                     '</div>';
+                    '</div>';
 
                 var html = '<form class="form-horizontal" id="form-edit">' +
-                    '<input type="hidden" name="grouptype" value="5公里">' +
-                    '<input type="hidden" name="pakcage_get_way" value="顺丰到付">' +
-                    '<input type="hidden" name="p1_sex" value="男">' +
-                    '<input type="hidden" name="p2_sex" value="">' +
-                    '<input type="hidden" name="kids_sex" value="">' +
+                    '<input type="hidden" id="grouptype" name="grouptype" value="'+groupValue+'">' +
+                    '<input type="hidden" name="pakcage_get_way" value="'+pakcagegetway+'">' +
+                    '<input type="hidden" name="p1_sex" value="'+p1sex+'">' +
+                    '<input type="hidden" name="p2_sex" value="'+p2sex+'">' +
+                    '<input type="hidden" name="kids_sex" value="'+kidssex+'">' +
                     '' +
                     '<div class="form-group form-group-divider">' +
                     '<div class="form-inner">' +
@@ -922,53 +1097,30 @@ var AppPage = function(){
                     '</div>' +
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">参赛组 :</label>' +
-                    '<div class="col-md-2">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio-type-default2" checked="checked" type="radio" value="5公里" name="radio_grouptype">' +
-                    '<label for="radio-type-default2">5公里</label>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="col-sm-2">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio-type-rounded2" type="radio" value="10公里" name="radio_grouptype">' +
-                    '<label for="radio-type-rounded2">10公里</label>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="col-sm-2">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio-type-circle2" type="radio" value="家庭跑" name="radio_grouptype">' +
-                    '<label for="radio-type-circle2">家庭跑</label>' +
-                    '</div>' +
-                    '</div>' +
+                     groupHTML+
                     '</div>' +
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">标签</label>' +
                     '<div class="col-sm-8">' +
-                    '<select class="chosen-select" name="p1_tag">' +
-                    '<option value="小清新">小清新</option>' +
-                    '<option value="重口味">重口味</option>' +
-                    '<option value="天然萌">天然萌</option>' +
-                    '<option value="自然呆">自然呆</option>' +
-                    '<option value="纯爷们">纯爷们</option>' +
-                    '<option value="万人迷">万人迷</option>' +
-                    '<option value="女神经">女神经</option>' +
-                    '<option value="男神经">男神经</option>' +
+                    '<select class="form-control"   id="p1_tag" name="p1_tag">' +
+                    '<option '+(data.p1_tag == "棒棒哒" ? 'selected="selected"' : '')+' value="棒棒哒">棒棒哒</option>' +
+                    '<option '+(data.p1_tag == "萌萌哒" ? 'selected="selected"' : '')+'value="重口味">萌萌哒</option>' +
+                    '<option '+(data.p1_tag == "美美哒" ? 'selected="selected"' : '')+'value="美美哒">美美哒</option>' +
+                    '<option '+(data.p1_tag == "小清新" ? 'selected="selected"' : '')+' value="小清新">小清新</option>' +
+                    '<option '+(data.p1_tag == "重口味" ? 'selected="selected"' : '')+'value="重口味">重口味</option>' +
+                    '<option '+(data.p1_tag == "天然萌" ? 'selected="selected"' : '')+'value="天然萌">天然萌</option>' +
+                    '<option '+(data.p1_tag == "自然呆" ? 'selected="selected"' : '')+'value="自然呆">自然呆</option>' +
+                    '<option '+(data.p1_tag == "纯爷们" ? 'selected="selected"' : '')+'value="纯爷们">纯爷们</option>' +
+                    '<option '+(data.p1_tag == "万人迷" ? 'selected="selected"' : '')+'value="万人迷">万人迷</option>' +
+                    '<option '+(data.p1_tag == "女神经" ? 'selected="selected"' : '')+'value="女神经">女神经</option>' +
+                    '<option '+(data.p1_tag == "男神经" ? 'selected="selected"' : '')+'value="男神经">男神经</option>' +
                     '</select>' +
                     '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">赛事包领取方式 :</label>' +
                     '<div class="col-sm-4">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio_pakcage_get_way_delivery" checked="checked" type="radio" value="顺丰到付" name="radio_pakcage_get_way">' +
-                    '<label for="radio_pakcage_get_way_delivery">顺丰到付</label>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="col-sm-4">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio_pakcage_get_way_onsite" type="radio" value="现场领取" name="radio_pakcage_get_way">' +
-                    '<label for="radio_pakcage_get_way_onsite">现场领取</label>' +
-                    '</div>' +
+                    pakcagegetwayHTML+
                     '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
@@ -997,7 +1149,7 @@ var AppPage = function(){
                     '<div class="form-inner">' +
                     '<h4 class="no-margin">参赛人信息</h4>' +
                     '</div>' +
-                    '</div>' +
+                    '</div><br/>' +
 
                     // 成人1
                     '<div class="form-group">' +
@@ -1009,16 +1161,7 @@ var AppPage = function(){
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">性别 : </label>' +
                     '<div class="col-sm-4">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio_p1_sex_male" checked="checked" type="radio" value="男" name="radio_p1_sex">' +
-                    '<label for="radio_p1_sex_male">男</label>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="col-sm-4">' +
-                    '<div class="rdio rdio-theme circle">' +
-                    '<input id="radio_p1_sex_female" type="radio" value="女" name="radio_p1_sex">' +
-                    '<label for="radio_p1_sex_female">女</label>' +
-                    '</div>' +
+                    p1sexHTML+
                     '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
@@ -1030,24 +1173,24 @@ var AppPage = function(){
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">T恤尺码 :</label>' +
                     '<div class="col-sm-8">' +
-                    '<select class="chosen-select" name="p1_teesize">' +
-                    '<option value="XS(160/82A)">XS(160/82A)</option>' +
-                    '<option value="S(165/84A)">S(165/84A)</option>' +
-                    '<option value="M(170/88A)">M(170/88A)</option>' +
-                    '<option value="L(175/92A)">L(175/92A)</option>' +
-                    '<option value="XL(180/96A)">XL(180/96A)</option>' +
-                    '<option value="XXL(185/100A)">XXL(185/100A)</option>' +
+                    '<select class="form-control" name="p1_teesize">' +
+                    '<option '+(data.p1_teesize == "XS(160/82A)" ? 'selected="selected"' : '')+' value="XS(160/82A)">XS(160/82A)</option>' +
+                    '<option '+(data.p1_teesize == "S(165/84A)" ? 'selected="selected"' : '')+' value="S(165/84A)">S(165/84A)</option>' +
+                    '<option '+(data.p1_teesize == "M(170/88A)" ? 'selected="selected"' : '')+' value="M(170/88A)">M(170/88A)</option>' +
+                    '<option '+(data.p1_teesize == "L(175/92A)" ? 'selected="selected"' : '')+' value="L(175/92A)">L(175/92A)</option>' +
+                    '<option '+(data.p1_teesize == "XL(180/96A)" ? 'selected="selected"' : '')+' value="XL(180/96A)">XL(180/96A)</option>' +
+                    '<option '+(data.p1_teesize == "XXL(185/100A)" ? 'selected="selected"' : '')+'value="XXL(185/100A)">XXL(185/100A)</option>' +
                     '</select>' +
                     '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">证件类型 :</label>' +
                     '<div class="col-sm-8">' +
-                    '<select class="chosen-select" name="p1_card_type">' +
-                    '<option value="身份证">身份证</option>' +
-                    '<option value="护照">护照</option>' +
-                    '<option value="港澳居民来往内地通行证">港澳居民来往内地通行证</option>' +
-                    '<option value="台湾居民来往大陆通行证">台湾居民来往大陆通行证</option>' +
+                    '<select class="form-control" name="p1_card_type">' +
+                    '<option '+(data.p1_card_type == "身份证" ? 'selected="selected"' : '')+ 'value="身份证">身份证</option>' +
+                    '<option '+(data.p1_card_type == "护照" ? 'selected="selected"' : '')+ 'value="护照">护照</option>' +
+                    '<option '+(data.p1_card_type == "港澳居民来往内地通行证" ? 'selected="selected"' : '')+ ' value="港澳居民来往内地通行证">港澳居民来往内地通行证</option>' +
+                    '<option '+(data.p1_card_type == "台湾居民来往大陆通行证" ? 'selected="selected"' : '')+ ' value="台湾居民来往大陆通行证">台湾居民来往大陆通行证</option>' +
                     '</select>' +
                     '</div>' +
                     '</div>' +
@@ -1077,7 +1220,7 @@ var AppPage = function(){
                     '</div>' +
 
                     // family
-                    (data.grouptype == "家庭跑" ? family_html : '') +
+                    (data.grouptype == "亲子跑" ? family_html : '') +
 
 
                     '<div class="form-group form-group-divider">' +
@@ -1089,19 +1232,19 @@ var AppPage = function(){
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">支付状态 :</label>' +
                     '<div class="col-sm-8">' +
-                    '<p class="form-control-static">' + $('<div/>').text(data.pay_status).html() + '</p>'+
+                    '<input class="form-control" type="text" value="' + $('<div/>').text(data.pay_status).html() + '" name="pay_status">' +
                     '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">'+transactionName+' :</label>' +
                     '<div class="col-sm-8">' +
-                    '<p class="form-control-static">' + $('<div/>').text(data.transaction_id).html() + '</p>'+
+                    '<input class="form-control" type="text" value="' + $('<div/>').text(data.transaction_id).html() + '" name="transaction_id">' +
                     '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label class="col-sm-3 control-label">交易时间 :</label>' +
                     '<div class="col-sm-8">' +
-                    '<p class="form-control-static">' + $('<div/>').text(data.transaction_date).html() + '</p>'+
+                    '<input class="form-control" type="text" value="' +  $('<div/>').text(data.transaction_date).html() + '" name="transaction_date">' +
                     '</div>' +
                     '</div>' +
                 '</form>';
@@ -1177,115 +1320,121 @@ var AppPage = function(){
             function submitEdit() {
                 var data = {'id': _data.id};
 
-                if(_data.city_location !== $('input[name="city_location"]').val())
-                    data.city_location = $('input[name="city_location"]').val();
+                if(_data.grouptype !== $('#grouptype').val())
+                    data.grouptype = $('#grouptype').val();
 
-                if(_data.name !== $('input[name="name"]').val())
-                    data.name = $('input[name="name"]').val();
+                if(_data.p1_tag !== $('#p1_tag').val())
+                    data.p1_tag = $('#p1_tag').val();
 
-                if(_data.extra_name !== $('input[name="extra_name"]').val())
-                    data.extra_name = $('input[name="extra_name"]').val();
+                if(_data.p1_name !== $('input[name="p1_name"]').val())
+                    data.p1_name = $('input[name="p1_name"]').val();
 
-                if(_data.categories !== $("select[name='categories']").val())
-                    data.categories = $("select[name='categories']").val();
+                if(_data.p1_sex !== $('input[name=p1_sex]').val())
+                    data.p1_sex = $('input[name=p1_sex]').val();
 
-                if(_data.introduction !== $('textarea[name="introduction"]').val())
-                    data.introduction = $('textarea[name="introduction"]').val();
+                if(_data.p1_birthday !== $("input[name='p1_birthday']").val())
+                    data.p1_birthday = $("input[name='p1_birthday']").val();
 
-                var services_provided = '';
-                if($("#services_provided_gift").is(':checked'))
-                    services_provided += ',0';
-                if($("#services_provided_discount").is(':checked'))
-                    services_provided += ',1';
-                if($("#services_provided_vas").is(':checked'))
-                    services_provided += ',2';
-                $("input[name='services_provided']").val(services_provided.substr(1));
-                if(_data.services_provided !== $("input[name='services_provided']"))
-                    data.services_provided = $("input[name='services_provided']").val();
+                if(_data.p1_teesize !== $('select[name="p1_teesize"]').val())
+                    data.p1_teesize = $('select[name="p1_teesize"]').val();
 
-                if(_data.open_time !== $("textarea[name='open_time']").val())
-                    data.open_time = $("textarea[name='open_time']").val();
-                if(_data.service_phone !== $("input[name='service_phone']").val())
-                    data.service_phone = $("input[name='service_phone']").val();
-                if(_data.website !== $("input[name='website']").val())
-                    data.website = $("input[name='website']").val();
-                if(_data.address !== $("input[name='address']").val())
-                    data.address = $("input[name='address']").val();
-                if(_data.address_nearby !== $("input[name='address_nearby']").val())
-                    data.address_nearby = $("input[name='address_nearby']").val();
-                if(_data.transport !== $("input[name='transport']").val())
-                    data.transport = $("input[name='transport']").val();
-                if(_data.car_parking !== $("input[name='car_parking']").val())
-                    data.car_parking = $("input[name='car_parking']").val();
+                if(_data.p1_card_type !== $('select[name="p1_card_type"]').val())
+                    data.p1_card_type = $('select[name="p1_card_type"]').val();
 
-                var payment_support = '';
-                if($("#payment_support_visa").is(':checked'))
-                    payment_support += ',0';
-                if($("#payment_support_unionpay").is(':checked'))
-                    payment_support += ',1';
-                if($("#payment_support_mastercard").is(':checked'))
-                    payment_support += ',2';
-                if($("#payment_support_jcb").is(':checked'))
-                    payment_support += ',3';
-                if($("#payment_support_americanexpress").is(':checked'))
-                    payment_support += ',4';
-                $("input[name='payment_support']").val(payment_support.substr(1));
-                if(_data.payment_support !== $("input[name='payment_support']"))
-                    data.payment_support = $("input[name='payment_support']").val();
+                if(_data.p1_card_number !== $('input[name="p1_card_number"]').val())
+                    data.p1_card_number = $('input[name="p1_card_number"]').val();
 
-                $("input[name='wifi']").val($("#wifi_checkbox").is(':checked') == true ? 1 : 0);
-                if(_data.wifi !== $("input[name='wifi']"))
-                    data.wifi = $("input[name='wifi']").val();
-                if(_data.wifi_name !== $("input[name='wifi_name']").val())
-                    data.wifi_name = $("input[name='wifi_name']").val();
-                if(_data.wifi_pwd !== $("input[name='wifi_pwd']").val())
-                    data.wifi_pwd = $("input[name='wifi_pwd']").val();
+                if(_data.p1_phone !== $('input[name="p1_phone"]').val())
+                    data.p1_phone = $('input[name="p1_phone"]').val();
 
-                if(_data.vat_number !== $("input[name='vat_number']").val())
-                    data.vat_number = $("input[name='vat_number']").val();
+                if(_data.p1_emergency_name !== $('input[name="p1_emergency_name"]').val())
+                    data.p1_emergency_name = $('input[name="p1_emergency_name"]').val();
 
-                $("input[name='is_home_recommend']").val($("#is_recommend_checkbox").is(':checked') == true ? 1 : 0);
-                if(_data.is_home_recommend !== $("input[name='is_home_recommend']"))
-                    data.is_home_recommend = $("input[name='is_home_recommend']").val();
+                if(_data.p1_emergency_phone !== $('input[name="p1_emergency_phone"]').val())
+                    data.p1_emergency_phone = $('input[name="p1_emergency_phone"]').val();
 
-                if(_data.home_recommend_sort_index !== $("input[name='home_recommend_sort_index']").val())
-                {
-                    if($("input[name='home_recommend_sort_index']").val() != "")
-                        data.home_recommend_sort_index = $("input[name='home_recommend_sort_index']").val();
-                    else
-                        data.home_recommend_sort_index = 0;
-                }
+                //p2
+                if(_data.p2_name !== $('input[name="p2_name"]').val())
+                    data.p2_name = $('input[name="p2_name"]').val();
 
-                if(_data.store_list_sort_index !== $("input[name='store_list_sort_index']").val())
-                {
-                    if($("input[name='store_list_sort_index']").val() != "")
-                        data.store_list_sort_index = $("input[name='store_list_sort_index']").val();
-                    else
-                        data.store_list_sort_index = 0;
-                }
+                if(_data.p2_sex !== $('input[name=p2_sex]').val())
+                    data.p2_sex = $('input[name=p2_sex]').val();
 
-                if(_data.status !== $("select[name='status']").val())
-                    data.status = $("select[name='status']").val();
+                if(_data.p2_birthday !== $("input[name='p2_birthday']").val())
+                    data.p2_birthday = $("input[name='p2_birthday']").val();
 
-                // images
-                if($('.logo_url div[data-trigger="fileinput"] img').attr('src'))
-                    data.logo_url = $('.logo_url div[data-trigger="fileinput"] img').attr('src');
+                if(_data.p2_teesize !== $('select[name="p2_teesize"]').val())
+                    data.p2_teesize = $('select[name="p2_teesize"]').val();
 
-                if($('.thumbnail_url div[data-trigger="fileinput"] img').attr("src"))
-                    data.thumbnail_url = $('.thumbnail_url div[data-trigger="fileinput"] img').attr("src");
+                if(_data.p2_card_type !== $('select[name="p2_card_type"]').val())
+                    data.p2_card_type = $('select[name="p2_card_type"]').val();
 
-                if($('.photo_url_0 div[data-trigger="fileinput"] img').attr("src"))
-                    data.photo_url_0 = $('.photo_url_0 div[data-trigger="fileinput"] img').attr("src");
+                if(_data.p2_card_number !== $('input[name="p2_card_number"]').val())
+                    data.p2_card_number = $('input[name="p2_card_number"]').val();
 
-                if($('.photo_url_1 div[data-trigger="fileinput"] img').attr("src"))
-                    data.photo_url_1 = $('.photo_url_1 div[data-trigger="fileinput"] img').attr("src");
+                if(_data.p2_phone !== $('input[name="p2_phone"]').val())
+                    data.p2_phone = $('input[name="p2_phone"]').val();
 
-                if($('.photo_url_2 div[data-trigger="fileinput"] img').attr("src"))
-                    data.photo_url_2 = $('.photo_url_2 div[data-trigger="fileinput"] img').attr("src");
+                if(_data.p2_emergency_name !== $('input[name="p2_emergency_name"]').val())
+                    data.p2_emergency_name = $('input[name="p2_emergency_name"]').val();
 
-                if($('.photo_url_3 div[data-trigger="fileinput"] img').attr("src"))
-                    data.photo_url_3 = $('.photo_url_3 div[data-trigger="fileinput"] img').attr("src");
+                if(_data.p2_emergency_phone !== $('input[name="p2_emergency_phone"]').val())
+                    data.p2_emergency_phone = $('input[name="p2_emergency_phone"]').val();
 
+                //kids
+                if(_data.kids_name !== $('input[name="kids_name"]').val())
+                    data.kids_name = $('input[name="kids_name"]').val();
+
+                if(_data.kids_sex !== $('input[name=kids_sex]').val())
+                    data.kids_sex = $('input[name=kids_sex]').val();
+
+                if(_data.kids_birthday !== $("input[name='kids_birthday']").val())
+                    data.kids_birthday = $("input[name='kids_birthday']").val();
+
+                if(_data.kids_teesize !== $('select[name="kids_teesize"]').val())
+                    data.kids_teesize = $('select[name="kids_teesize"]').val();
+
+                if(_data.kids_card_type !== $('select[name="kids_card_type"]').val())
+                    data.kids_card_type = $('select[name="kids_card_type"]').val();
+
+                if(_data.kids_card_number !== $('input[name="kids_card_number"]').val())
+                    data.kids_card_number = $('input[name="kids_card_number"]').val();
+
+                if(_data.kids_guardian_name !== $('input[name="kids_guardian_name"]').val())
+                    data.kids_guardian_name = $('input[name="kids_guardian_name"]').val();
+
+                if(_data.kids_guardian_phone !== $('input[name="kids_guardian_phone"]').val())
+                    data.kids_guardian_phone = $('input[name="kids_guardian_phone"]').val();
+
+                if(_data.kids_emergency_name !== $('input[name="kids_emergency_name"]').val())
+                    data.kids_emergency_name = $('input[name="kids_emergency_name"]').val();
+
+                if(_data.kids_emergency_phone !== $('input[name="kids_emergency_phone"]').val())
+                    data.kids_emergency_phone = $('input[name="kids_emergency_phone"]').val();
+
+
+                //领取方式
+                if(_data.pakcage_get_way !== $('input[name="pakcage_get_way"]').val())
+                    data.pakcage_get_way = $('input[name="pakcage_get_way"]').val();
+
+                if(_data.pakcage_get_name !== $('input[name="pakcage_get_name"]').val())
+                    data.pakcage_get_name = $('input[name="pakcage_get_name"]').val();
+
+                if(_data.pakcage_get_phone !== $('input[name="pakcage_get_phone"]').val())
+                    data.pakcage_get_phone = $('input[name="pakcage_get_phone"]').val();
+
+                if(_data.pakcage_get_address !== $('input[name="pakcage_get_address"]').val())
+                    data.pakcage_get_address = $('input[name="pakcage_get_address"]').val();
+
+                //支付信息
+                if(_data.pay_status !== $('input[name="pay_status"]').val())
+                    data.pay_status = $('input[name="pay_status"]').val();
+
+                if(_data.transaction_id !== $('input[name="transaction_id"]').val())
+                    data.transaction_id = $('input[name="transaction_id"]').val();
+
+                if(_data.transaction_date !== $('input[name="transaction_date"]').val())
+                    data.transaction_date = $('input[name="transaction_date"]').val();
                 $.ajax({
                     method: 'POST',
                     url: '/racer/edit',
@@ -1568,10 +1717,10 @@ var AppPage = function(){
         bootstrapDatepicker: function () {
 
             // Default datepicker (options)
-            $('#p1_birthday').datepicker({
-                format: 'yyyy-mm-dd',
-                todayBtn: 'linked'
-            });
+            // $('#p1_birthday').datepicker({
+            //     format: 'yyyy-mm-dd',
+            //     todayBtn: 'linked'
+            // });
 
         },
 
@@ -1613,9 +1762,9 @@ var AppPage = function(){
                     hideFamilyForm();
                     changeGroupType('10公里');
                 }
-                else if (this.value == '家庭跑') {
+                else if (this.value == '亲子跑') {
                     showFamilyForm();
-                    changeGroupType('家庭跑');
+                    changeGroupType('亲子跑');
                 }
             });
 
@@ -1637,17 +1786,17 @@ var AppPage = function(){
 
             $('input[type=radio][name=radio_p2_sex]').change(function() {
                 if (this.value == '男') {
-                    $("input[name=p1_sex]").val('男');
+                    $("input[name=p2_sex]").val('男');
                 }else if(this.value == '女') {
-                    $("input[name=p1_sex]").val('女');
+                    $("input[name=p2_sex]").val('女');
                 }
             });
 
             $('input[type=radio][name=radio_kids_sex]').change(function() {
                 if (this.value == '男') {
-                    $("input[name=p1_sex]").val('男');
+                    $("input[name=kids_sex]").val('男');
                 }else if(this.value == '女') {
-                    $("input[name=p1_sex]").val('女');
+                    $("input[name=kids_sex]").val('女');
                 }
             });
 
