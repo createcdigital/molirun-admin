@@ -194,8 +194,8 @@ var AppPage = function(){
                                 '<a href="#" class="btn-view">查看</a>' +
                                 '</li>' +
                                 '<li><a href="#" class="btn-edit">编辑</a></li>' +
-                                '<li role="separator" class="divider"></li>' +
-                                '<li><a href="#" class="btn-delete">删除</a></li>' +
+                                // '<li role="separator" class="divider"></li>' +
+                                // '<li><a href="#" class="btn-delete">删除</a></li>' +
                                 '</ul>' +
                                 '</div>'
                         }
