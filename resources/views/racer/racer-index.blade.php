@@ -57,6 +57,7 @@
                     <div class="panel-body">
 
                         <div class="panel-body">
+                            <button class="btn btn-success" onclick="javascript:location.href='/racer/export'">导出Excel</button>
                             {{--<button class="btn btn-success" onclick="javascript:location.href='/racer/create'">{{ trans('racer.new') }}</button>--}}
                         </div>
 

@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/racer/store', 'RacerController@store');
     Route::post('/racer/delete', 'RacerController@destroy');
     Route::post('/racer/edit', 'RacerController@edit');
+    Route::get('/racer/export', 'RacerController@Export');
 
     Route::get('/stock/index', 'StockController@getIndex');
     Route::get('/stock/data', 'StockController@anyData');

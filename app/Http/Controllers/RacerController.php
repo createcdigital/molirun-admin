@@ -12,10 +12,11 @@ use App\Models\Racer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use View;
-
+use Excel;
 use Yajra\Datatables\Datatables;
 
 
@@ -306,6 +307,91 @@ class RacerController extends BaseController {
 
         $model->save();
 
+    }
+    public function  Export()
+    {
+        //redeem
+
+        $info = DB::select("SELECT * from racers where created_at < '2017-09-04 00:00:00' order by created_at");
+
+        $export = array();
+        foreach ($info as $key=>$value) {
+            array_push($export,array(
+                                    'openid'=>$value->openid,
+                                    '昵称'=>$value->nickname,
+                                    //'headimgurl'=>$value->headimgurl,
+                                    '性别'=>$value->sex,
+                                    '城市'=>$value->city,
+                                    '国家'=>$value->country,
+                                    '省份'=>$value->province,
+                                    //'subscribe_time'=>$value->subscribe_time,
+
+                                    // form
+                                    '报名组别'=>$value->grouptype,
+                                    '标签'=>$value->p1_tag,
+
+                                    // p1
+                                    '成人1姓名'=>$value->p1_name,
+                                    '成人1性别'=>$value->p1_sex,
+                                    '成人1出生年月'=>$value->p1_birthday,
+                                    '成人1T恤尺码'=>$value->p1_teesize,
+
+                                    '成人1证件类型'=>$value->p1_card_type,
+                                    '成人1证件号码'=>$value->p1_card_number,
+                                    '成人1手机号'=>$value->p1_phone,
+
+                                    '成人1紧急联系人'=>$value->p1_emergency_name,
+                                    '成人1紧急联系人手机'=>$value->p1_emergency_phone,
+
+                                    // p2
+                                    '成人2姓名'=>$value->p2_name,
+                                    '成人2性别'=>$value->p2_sex,
+                                    '成人2出生年月'=>$value->p2_birthday,
+                                    '成人2T恤尺码'=>$value->p2_teesize,
+
+                                    '成人2证件类型'=>$value->p2_card_type,
+                                    '成人2证件号码'=>$value->p2_card_number,
+                                    '成人2手机号'=>$value->p2_phone,
+
+                                    '成人2紧急联系人'=>$value->p2_emergency_name,
+                                    '成人2紧急联系人手机'=>$value->p2_emergency_phone,
+
+                                    // kids
+                                    '未成年人姓名'=>$value->kids_name,
+                                    '未成年人性别'=>$value->kids_sex,
+                                    '未成年人出生年月'=>$value->kids_birthday,
+                                    '未成年人T恤尺码'=>$value->kids_teesize,
+
+                                    '未成年人证件类型'=>$value->kids_card_type,
+                                    '未成年人证件号码'=>$value->kids_card_number,
+                                    '未成年人法定监护人姓名'=>$value->kids_guardian_name,
+                                    '未成年人法定监护人手机号'=>$value->kids_guardian_phone,
+
+                                    '未成年人紧急联系人'=>$value->kids_emergency_name,
+                                    '未成年人紧急联系人手机'=>$value->kids_emergency_phone,
+
+                                    // package
+                                    '领取方式'=>$value->pakcage_get_way,
+                                    '收件人姓名'=>$value->pakcage_get_name,
+                                    '收件人手机'=>$value->pakcage_get_phone,
+                                    '收件人地址'=>$value->pakcage_get_address,
+
+                                    // payment
+                                    //'订单号'=>$value->out_trade_no,
+                                    '支付状态'=>$value->pay_status,
+                                    '交易号'=>$value->transaction_id,
+                                    '交易日期'=>$value->transaction_date,
+
+                                    '报名日期'=>$value->created_at));
+        }
+
+
+        Excel::create('用户报名信息', function($excel) use ($export) {
+            $excel->sheet('报名信息', function($sheet) use ($export) {
+                $sheet->fromArray($export);
+            });
+
+        })->export('xls');
     }
 
 }

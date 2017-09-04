@@ -239,6 +239,11 @@ return [
 		 * https://sentry.io
 		 */
 		'Sentry' => Sentry\SentryLaravel\SentryFacade::class,
+		/**
+		 * Excel imoport and export
+		 *
+		 */
+		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 	],
 
 ];
