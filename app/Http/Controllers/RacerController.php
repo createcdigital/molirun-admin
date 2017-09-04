@@ -312,7 +312,7 @@ class RacerController extends BaseController {
     {
         //redeem
 
-        $info = DB::select("SELECT * from racers where created_at < '2017-09-04 00:00:00' order by created_at");
+        $info = DB::select("SELECT * from racers  order by created_at");
 
         $export = array();
         foreach ($info as $key=>$value) {
